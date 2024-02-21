@@ -45,10 +45,15 @@ form {
   button {
     width: 100%;
     padding: 12px;
-    background-color: #007bff;
-    color: #fff;
+    background: #002d93;
+    color: #fff; /* Texte en blanc */
     border: none;
     cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  button:hover {
+    background: #00184e;
   }
 }
 
