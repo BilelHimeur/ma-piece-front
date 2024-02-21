@@ -46,7 +46,7 @@ form {
     width: 100%;
     padding: 12px;
     background: #002d93;
-    color: #fff; /* Texte en blanc */
+    color: #fff;
     border: none;
     cursor: pointer;
     transition: background 0.3s ease;
@@ -112,11 +112,11 @@ form {
       .bullet {
         margin-right: 5px;
         font-weight: bold;
-        color: #009688; /* Couleur du point en gras */
+        color: #002d93;
       }
 
       strong {
-        color: #333; /* Couleur du texte en gras */
+        color: #333;
       }
     }
   }
