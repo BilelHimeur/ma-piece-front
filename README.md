@@ -17,3 +17,8 @@ L'application sera accessible dans un navigateur à l'adresse http://localhost:4
 Une fois sur la page, vous avez la possibilité de choisir n'importe quelle immatriculation valide d'un véhicule pour consulter les détails des pièces qui lui sont associées ainsi que des informations supplémentaires sur le véhicule.
 
 Les informations sont récupérées à l'aide du web scraping avant d'être téléversées dans la base de données. La recherche s'effectue d'abord dans la base de données pour minimiser la latence, sinon le web scraping se base sur le site https://www.piecesauto.com/.
+
+
+
+# Note : 
+L'outil de scraping utilisé, utilise Chromium par défaut et les tests étaient effectués via le navigateur Chrome. Donc pour une meilleure testabilité, veuillez utiliser Chrome !
