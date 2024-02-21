@@ -23,7 +23,6 @@ export class AppComponent {
   vehiculeDetails: VehiculeDetails | undefined;
   loading: boolean = false;
 
-  @ViewChild(VehiculeDetailsComponent, { static: false })
   formSubmitted: boolean = false;
 
   constructor(private vehiculeService: VehiculeService) {
