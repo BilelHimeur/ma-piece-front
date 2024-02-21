@@ -1,1 +1,45 @@
 <H1>{{title}}</H1>
+
+<p>Veuillez entrer le numéro d'immatriculation du véhicule pour rechercher les détails ainsi que les pièces associées :</p>
+
+<form (ngSubmit)="onSubmit()">
+  <label for="immatriculation">Immatriculation :</label>
+  <input
+    type="text"
+    id="immatriculation"
+    name="immatriculation"
+    [(ngModel)]="immatriculation"
+    pattern="[A-Za-z]{2}-[0-9]{3}-[A-Za-z]{2}"
+    required
+  />
+  <div *ngIf="formSubmitted && !isValidImmatriculation()" class="error-message">
+    Veuillez saisir une immatriculation valide (format attendu: AA-123-AA).
+  </div>
+  <button type="submit" (click)="formSubmitted = true">Rechercher véhicule</button>
+</form>
+
+<div *ngIf="vehiculeDetails" class="details-container">
+  <h2>Détails du véhicule : </h2>
+  <div class="detail-item">
+    <label>Modèle :</label>
+    <p>{{ vehiculeDetails.modele }}</p>
+  </div>
+  <div class="detail-item">
+    <label>Année :</label>
+    <p>{{ vehiculeDetails.annee }}</p>
+  </div>
+  <div class="detail-item">
+    <label>Immatriculation :</label>
+    <p>{{ vehiculeDetails.immatriculation }}</p>
+  </div>
+  <div class="detail-item">
+    <label>Pièces détachées pour ce véhicule :</label>
+  </div>
+  <div class="detail-item">
+    <ul class="pieces-list">
+      <li *ngFor="let piece of vehiculeDetails.pieces">
+        <span class="bullet">&#8226;</span> <strong>{{ piece }}</strong>
+      </li>
+    </ul>
+  </div>
+</div>
