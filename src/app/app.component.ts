@@ -21,6 +21,7 @@ export class AppComponent {
   title = 'Ma pièce à moi par AUTODISTRIBUTION';
   immatriculation: string = '';
   vehiculeDetails: VehiculeDetails | undefined;
+  loading: boolean = false;
 
   @ViewChild(VehiculeDetailsComponent, { static: false })
   formSubmitted: boolean = false;
@@ -35,8 +36,11 @@ export class AppComponent {
 
   onSubmit() {
     if (this.isValidImmatriculation()) {
+      this.loading = true;
+      this.vehiculeDetails = undefined;
       this.vehiculeService.getVehiculeDetails(this.immatriculation).subscribe(results => {
         this.vehiculeDetails = results;
+        this.loading = false;
       })
     }
   }
