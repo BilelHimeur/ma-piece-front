@@ -1,27 +1,19 @@
-# MaPieceFront
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+# Prérequis pour ce projet :
+Avoir npm et Node.js installés.
+Avoir une base de données MongoDB installée et exposée sur un serveur local (mongodb://localhost:27017).
 
-## Development server
+# Projet Backend : ma-piece-a-moi :
+Clonez le projet depuis le lien : https://github.com/BilelHimeur/ma-piece-a-moi.
+Exécutez la commande npm install pour installer les dépendances du projet.
+Ensuite, lancez le projet localement avec la commande npm run start.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+# Projet Frontend : ma-piece-front :
+Clonez le projet depuis le lien : https://github.com/BilelHimeur/ma-piece-front.
+Exécutez la commande npm install pour installer les dépendances du projet.
+Démarrez l'application Angular en local avec la commande ng serve.
+L'application sera accessible dans un navigateur à l'adresse http://localhost:4200/.
 
-## Code scaffolding
+Une fois sur la page, vous avez la possibilité de choisir n'importe quelle immatriculation valide d'un véhicule pour consulter les détails des pièces qui lui sont associées ainsi que des informations supplémentaires sur le véhicule.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Les informations sont récupérées à l'aide du web scraping avant d'être téléversées dans la base de données. La recherche s'effectue d'abord dans la base de données pour minimiser la latence, sinon le web scraping se base sur le site https://www.piecesauto.com/.
