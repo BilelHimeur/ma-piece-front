@@ -14,7 +14,7 @@ import {CommonModule} from "@angular/common";
   ],
   declarations: [
   ],
-  providers: [VehiculeService], // Provide your services here
+  providers: [VehiculeService],
   bootstrap: [AppComponent],
   exports: [
   ]

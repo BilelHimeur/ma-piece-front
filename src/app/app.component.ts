@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component} from '@angular/core';
 import {AppModule} from "./app.module";
 import {FormsModule} from "@angular/forms";
 import {CommonModule} from "@angular/common";
