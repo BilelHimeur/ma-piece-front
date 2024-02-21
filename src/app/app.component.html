@@ -15,6 +15,9 @@
   <div *ngIf="formSubmitted && !isValidImmatriculation()" class="error-message">
     Veuillez saisir une immatriculation valide (format attendu: AA-123-AA).
   </div>
+  <div *ngIf="vehiculeIntrouvable" class="error-message">
+    Immatriculation inconnue !
+  </div>
   <button type="submit" (click)="formSubmitted = true">Rechercher véhicule</button>
 </form>
 

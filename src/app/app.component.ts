@@ -21,6 +21,7 @@ export class AppComponent {
   immatriculation: string = '';
   vehiculeDetails: VehiculeDetails | undefined;
   loading: boolean = false;
+  vehiculeIntrouvable: boolean = false;
 
   formSubmitted: boolean = false;
 
@@ -34,10 +35,15 @@ export class AppComponent {
 
   onSubmit() {
     if (this.isValidImmatriculation()) {
+      this.vehiculeIntrouvable = false;
       this.loading = true;
       this.vehiculeDetails = undefined;
       this.vehiculeService.getVehiculeDetails(this.immatriculation).subscribe(results => {
-        this.vehiculeDetails = results;
+        if (results) {
+          this.vehiculeDetails = results;
+        } else {
+          this.vehiculeIntrouvable = true;
+        }
         this.loading = false;
       })
     }
