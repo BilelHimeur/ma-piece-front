@@ -2,6 +2,7 @@ h1 {
   font-size: 2em;
   text-align: center;
   margin-bottom: 20px;
+  color: #002d93;
 
   @media (min-width: 768px) {
     font-size: 2.5em;
@@ -26,14 +27,15 @@ p {
   }
 }
 
+label {
+  margin-bottom: 8px;
+  color: #002d93;
+}
+
 form {
   max-width: 100%;
   margin: 0 auto;
   padding: 16px;
-
-  label {
-    margin-bottom: 8px;
-  }
 
   input {
     width: 100%;
@@ -45,7 +47,7 @@ form {
   button {
     width: 100%;
     padding: 12px;
-    background: #002d93;
+    background: #d70013;
     color: #fff;
     border: none;
     cursor: pointer;

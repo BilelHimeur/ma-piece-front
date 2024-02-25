@@ -21,31 +21,26 @@ export class AppComponent {
   immatriculation: string = '';
   vehiculeDetails: VehiculeDetails | undefined;
   loading: boolean = false;
-  vehiculeIntrouvable: boolean = false;
-
-  formSubmitted: boolean = false;
+  vehiculeIntrouvable: string | undefined;
 
   constructor(private vehiculeService: VehiculeService) {
   }
 
-  isValidImmatriculation(): boolean {
-    const regexPattern = /[A-Za-z]{2}-[0-9]{3}-[A-Za-z]{2}/;
-    return regexPattern.test(this.immatriculation);
-  }
-
   onSubmit() {
-    if (this.isValidImmatriculation()) {
-      this.vehiculeIntrouvable = false;
-      this.loading = true;
-      this.vehiculeDetails = undefined;
-      this.vehiculeService.getVehiculeDetails(this.immatriculation).subscribe(results => {
-        if (results) {
-          this.vehiculeDetails = results;
-        } else {
-          this.vehiculeIntrouvable = true;
+    this.vehiculeIntrouvable = undefined;
+    this.loading = true;
+    this.vehiculeDetails = undefined;
+    this.vehiculeService.getVehiculeDetails(this.immatriculation).subscribe(
+      {
+        next: response => {
+          this.vehiculeDetails = response.body;
+          this.loading = false;
+        },
+        error: err => {
+          this.vehiculeIntrouvable = err.error.message;
+          this.loading = false;
         }
-        this.loading = false;
-      })
-    }
+      }
+    );
   }
 }

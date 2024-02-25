@@ -11,14 +11,12 @@
     [(ngModel)]="immatriculation"
     pattern="[A-Za-z]{2}-[0-9]{3}-[A-Za-z]{2}"
     required
+    (focus)="vehiculeIntrouvable = undefined"
   />
-  <div *ngIf="formSubmitted && !isValidImmatriculation()" class="error-message">
-    Veuillez saisir une immatriculation valide (format attendu: AA-123-AA).
-  </div>
   <div *ngIf="vehiculeIntrouvable" class="error-message">
-    Immatriculation inconnue !
+    {{vehiculeIntrouvable}}
   </div>
-  <button type="submit" (click)="formSubmitted = true">Rechercher véhicule</button>
+  <button type="submit">Rechercher véhicule</button>
 </form>
 
 <div *ngIf="loading" class="spinner-container">
@@ -37,7 +35,7 @@
   </div>
   <div class="detail-item">
     <label>Immatriculation :</label>
-    <p>{{ vehiculeDetails.immatriculation }}</p>
+    <p>{{ vehiculeDetails.immatriculation.toUpperCase() }}</p>
   </div>
   <div class="detail-item">
     <label>Pièces détachées pour ce véhicule :</label>
